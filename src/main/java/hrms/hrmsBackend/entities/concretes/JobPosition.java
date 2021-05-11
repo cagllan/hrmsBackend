@@ -21,6 +21,10 @@ public class JobPosition {
 	@Column(name="jobposition_name")
 	private String jobPositionName;	
 	
+	public JobPosition() {
+		
+	}
+	
 	public JobPosition(int id, String jobPositionName) {
 		super();
 		this.id = id;

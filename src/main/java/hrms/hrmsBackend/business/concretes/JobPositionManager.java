@@ -26,4 +26,32 @@ public class JobPositionManager implements JobPositionService{
 		return this.jobPositionDao.findAll();
 	}
 
+
+	@Override
+	public void add(JobPosition jobPosition) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void update(JobPosition jobPosition) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void delete(JobPosition jobPosition) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public JobPosition get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

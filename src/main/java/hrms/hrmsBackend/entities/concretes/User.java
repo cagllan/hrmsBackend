@@ -23,14 +23,14 @@ public class User {
 	
 	@Column(name="password")
 	private String password;
-	
+		
 	
 	public User(int id, String email, String password) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
-	}
+		}
 	
 	
 }

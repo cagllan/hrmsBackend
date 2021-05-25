@@ -1,24 +1,36 @@
 package hrms.hrmsBackend.entities.concretes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name="jobseekers")
-public class JobSeeker {
+@AllArgsConstructor
+@NoArgsConstructor
+@PrimaryKeyJoinColumn(name = "jobseeker_id")
+public class JobSeeker extends User{
 	
-	@Id
-	@GeneratedValue
-	@Column(name="jobseeker_id")
-	private int jobSeekerId;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 * 
+	 * @Column(name="jobseeker_id") private int jobSeekerId;
+	 */
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -30,17 +42,6 @@ public class JobSeeker {
 	private String nationalityId;
 	
 	@Column(name="date_of_birth")
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 
-	public JobSeeker(int jobSeekerId, String firstName, String lastName, String nationalityId, Date dateOfBirth) {
-		super();
-		this.jobSeekerId = jobSeekerId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.nationalityId = nationalityId;
-		this.dateOfBirth = dateOfBirth;
-	}
-	
-	
-	
 }

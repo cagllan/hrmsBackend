@@ -6,8 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hrms.hrmsBackend.business.abstracts.CorporationService;
+import hrms.hrmsBackend.core.utilites.results.DataResult;
+import hrms.hrmsBackend.core.utilites.results.Result;
+import hrms.hrmsBackend.core.utilites.results.SuccessDataResult;
+import hrms.hrmsBackend.core.utilites.results.SuccessResult;
 import hrms.hrmsBackend.dataAccess.abstracts.CorporationDao;
 import hrms.hrmsBackend.entities.concretes.Corporation;
+import hrms.hrmsBackend.entities.concretes.JobSeeker;
 
 @Service
 public class CorporationManager implements CorporationService{
@@ -21,33 +26,34 @@ public class CorporationManager implements CorporationService{
 	}
 
 	@Override
-	public void add(Corporation corporation) {
-		// TODO Auto-generated method stub
-		
+	public Result add(Corporation corporation) {
+		this.corporationDao.save(corporation);
+		return new SuccessResult("firma kayıt oldu");
 	}
 
 	@Override
-	public void update(Corporation corporation) {
-		// TODO Auto-generated method stub
+	public DataResult<List<Corporation>> getAll() {
 		
+		return new SuccessDataResult<List<Corporation>>(this.corporationDao.findAll(), "şirketler listelendi");
 	}
 
 	@Override
-	public void delete(Corporation corporation) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Corporation get(int id) {
+	public Result update(Corporation corporation) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Corporation> getAll() {
+	public Result delete(Corporation corporation) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public DataResult<Corporation> get(Corporation corporation) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

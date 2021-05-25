@@ -2,12 +2,14 @@ package hrms.hrmsBackend.business.abstracts;
 
 import java.util.List;
 
+import hrms.hrmsBackend.core.utilites.results.DataResult;
+import hrms.hrmsBackend.core.utilites.results.Result;
 import hrms.hrmsBackend.entities.concretes.JobSeeker;
 
 public interface JobSeekerService {
-	void add(JobSeeker jobSeeker);
-	void update(JobSeeker jobSeeker);
-	void delete(JobSeeker jobSeeker);
-	JobSeeker get(int id);
-	List<JobSeeker> getAll();
+	Result add(JobSeeker jobSeeker);
+	Result update(JobSeeker jobSeeker);	
+	Result delete(JobSeeker jobSeeker);
+	DataResult<JobSeeker> get(JobSeeker jobSeeker);
+	DataResult<List<JobSeeker>> getAll();
 }

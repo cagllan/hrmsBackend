@@ -2,12 +2,14 @@ package hrms.hrmsBackend.business.abstracts;
 
 import java.util.List;
 
+import hrms.hrmsBackend.core.utilites.results.DataResult;
+import hrms.hrmsBackend.core.utilites.results.Result;
 import hrms.hrmsBackend.entities.concretes.Corporation;
 
 public interface CorporationService {
-	void add(Corporation corporation);
-	void update(Corporation corporation);
-	void delete(Corporation corporation);
-	Corporation get(int id);
-	List<Corporation> getAll();
+	Result add(Corporation corporation);
+	Result update(Corporation corporation);	
+	Result delete(Corporation corporation);
+	DataResult<Corporation> get(Corporation corporation);
+	DataResult<List<Corporation>> getAll();
 }

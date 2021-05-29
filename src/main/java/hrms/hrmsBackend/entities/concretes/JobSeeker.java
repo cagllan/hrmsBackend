@@ -2,36 +2,35 @@ package hrms.hrmsBackend.entities.concretes;
 
 import java.time.LocalDate;
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name="jobseekers")
 @AllArgsConstructor
 @NoArgsConstructor
-@PrimaryKeyJoinColumn(name = "jobseeker_id")
-public class JobSeeker extends User{
+
+
+public class JobSeeker{
 	
-	/*
-	 * @Id
-	 * 
-	 * @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 * 
-	 * @Column(name="jobseeker_id") private int jobSeekerId;
-	 */
-	
+	@Id
+	  @Column(name="jobseeker_id")
+	  private int jobSeekerId;
+	  
 	@Column(name="first_name")
 	private String firstName;
 	
@@ -43,5 +42,10 @@ public class JobSeeker extends User{
 	
 	@Column(name="date_of_birth")
 	private LocalDate dateOfBirth;
+	
+	@OneToOne()
+    @MapsId
+    @JoinColumn(name = "jobseeker_id")
+	private User user;
 
 }

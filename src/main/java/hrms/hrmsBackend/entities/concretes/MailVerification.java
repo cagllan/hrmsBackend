@@ -1,13 +1,15 @@
 package hrms.hrmsBackend.entities.concretes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,7 +36,8 @@ public class MailVerification {
 	@Column(name="verification")
 	private boolean verification;
 	
-	@Column(name="verification_data")
-	private Date verificationDate;
+	@Column(name="verification_date")
+	private LocalDate verificationDate;
+	
 
 }

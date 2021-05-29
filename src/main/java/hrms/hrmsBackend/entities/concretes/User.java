@@ -1,13 +1,18 @@
 package hrms.hrmsBackend.entities.concretes;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,15 +23,16 @@ import lombok.NoArgsConstructor;
 @Table(name="users")
 @AllArgsConstructor
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-public class User {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
-	
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobSeeker"})
 
+public class User {
+		
+	  @Id	  
+	  @GeneratedValue(strategy = GenerationType.IDENTITY)	  
+	  @Column(name="id") 
+	  private int id;
+	 
+	
 	@Column(name="email")
 	private String email;
 	
@@ -35,5 +41,10 @@ public class User {
 	
 	@Column(name="password_repeat")
 	private String passwordRepeat;
+	
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+	private JobSeeker jobSeeker;
+	
 		
 }

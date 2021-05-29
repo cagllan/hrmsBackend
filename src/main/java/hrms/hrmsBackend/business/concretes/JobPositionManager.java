@@ -38,28 +38,4 @@ public class JobPositionManager implements JobPositionService{
 		
 	}
 
-
-	@Override
-	public Result update(JobPosition jobPosition) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Result delete(JobPosition jobPosition) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public DataResult<JobPosition> get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-
 }

@@ -7,9 +7,7 @@ import hrms.hrmsBackend.core.utilites.results.Result;
 import hrms.hrmsBackend.entities.concretes.User;
 
 public interface UserService {
-	Result add(User user);	
-	Result update(User user);	
-	Result delete(User user);
-	DataResult<User> get(User user);
+	Result add(User user);
 	DataResult<List<User>> getAll();
+	boolean isEmailExist(String email);
 }

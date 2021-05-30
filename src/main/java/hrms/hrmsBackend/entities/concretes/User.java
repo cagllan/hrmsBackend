@@ -1,17 +1,17 @@
 package hrms.hrmsBackend.entities.concretes;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -42,9 +42,15 @@ public class User {
 	@Column(name="password_repeat")
 	private String passwordRepeat;
 	
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	@JsonIgnore
+	@OneToOne(mappedBy = "user")
     @PrimaryKeyJoinColumn
 	private JobSeeker jobSeeker;
+	
+	@JsonIgnore
+	@OneToOne(mappedBy = "user")
+    @PrimaryKeyJoinColumn
+	private Corporation corporation;
 	
 		
 }

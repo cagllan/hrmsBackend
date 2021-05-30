@@ -46,7 +46,7 @@ public class JobSeekerManager implements JobSeekerService{
 		}
 		
 		
-		if(jobSeeker.getUser().getPassword() != jobSeeker.getUser().getPasswordRepeat()) {
+		if(!jobSeeker.getUser().getPassword().equals(jobSeeker.getUser().getPasswordRepeat()) ) {
 			return new ErrorResult("şifreler aynı değil");
 		}
 			

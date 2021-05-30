@@ -23,8 +23,6 @@ import lombok.NoArgsConstructor;
 @Table(name="jobseekers")
 @AllArgsConstructor
 @NoArgsConstructor
-
-
 public class JobSeeker{
 	
 	@Id

@@ -12,7 +12,7 @@ public class SendEmailVerifyManager implements SendEmailVerifyService{
 	@Override
 	public boolean sendEmail(String email) {
 		
-		return false;
+		return true;
 	}
 	
 

@@ -52,5 +52,10 @@ public class User {
     @PrimaryKeyJoinColumn
 	private Corporation corporation;
 	
+	@JsonIgnore
+	@OneToOne(mappedBy = "user")
+    @PrimaryKeyJoinColumn
+	private Employee employee;
+	
 		
 }

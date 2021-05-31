@@ -38,12 +38,12 @@ public class JobAdvertisement {
 	private String jobDescription;
 	
 	@Column(name="minimum_salary")
-	private double minimumSalary;
+	private int minimumSalary;
 	
 	@Column(name="maximum_salary")
-	private double maximumSalary;
+	private int maximumSalary;
 	
-	@Column(name="number_of_open_position")
+	@Column(name="number_of_open_positions")
 	private int numberOfOpenPosition;
 	
 	@Column(name="release_date")

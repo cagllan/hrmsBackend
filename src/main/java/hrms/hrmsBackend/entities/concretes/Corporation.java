@@ -47,6 +47,7 @@ public class Corporation{
     @JoinColumn(name = "corporation_id")
 	private User user;
 	
+	
 	@OneToMany(mappedBy = "corporation")
 	private List<JobAdvertisement> jobAdvertisements;
 

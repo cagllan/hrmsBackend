@@ -9,7 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,12 +32,18 @@ public class MailVerification {
 	private int userId;
 	
 	@Column(name="verification_code")
+	@NotBlank
+	@NotNull
 	private String verificationCode;
 	
 	@Column(name="verification")
+	@NotBlank
+	@NotNull
 	private boolean verification;
 	
 	@Column(name="verification_date")
+	@NotBlank
+	@NotNull
 	private LocalDate verificationDate;
 	
 

@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -34,12 +37,19 @@ public class User {
 	 
 	
 	@Column(name="email")
+	@Email
+	@NotBlank
+	@NotNull
 	private String email;
 	
 	@Column(name="password")
+	@NotBlank
+	@NotNull
 	private String password;
 	
 	@Column(name="password_repeat")
+	@NotBlank
+	@NotNull
 	private String passwordRepeat;
 	
 	@JsonIgnore

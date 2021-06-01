@@ -1,5 +1,6 @@
 package hrms.hrmsBackend.business.concretes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,12 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 	public DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActive() {
 		
 		return new SuccessDataResult<List<JobAdvertisementWithActiveDto>>(this.jobAdvertisementDao.getJobAdvertisementWithActive(),"aktif olanlar getirildi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActiveAndReleaseDate(
+			LocalDate releaseDate) {
+		return new SuccessDataResult<List<JobAdvertisementWithActiveDto>>(this.jobAdvertisementDao.getJobAdvertisementWithActiveAndReleaseDate(releaseDate),"tarihli ilanlar getirildi");
 	}
 
 }

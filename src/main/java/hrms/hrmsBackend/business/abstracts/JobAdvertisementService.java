@@ -1,5 +1,6 @@
 package hrms.hrmsBackend.business.abstracts;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import hrms.hrmsBackend.core.utilites.results.DataResult;
@@ -11,4 +12,6 @@ public interface JobAdvertisementService {
 	Result add(JobAdvertisement jobAdvertisement);
 	DataResult<List<JobAdvertisement>> getAll();
 	DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActive();
+	
+	DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActiveAndReleaseDate(LocalDate releaseDate);
 }

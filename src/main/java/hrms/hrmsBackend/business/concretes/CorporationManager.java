@@ -32,10 +32,7 @@ public class CorporationManager implements CorporationService{
 	@Override
 	public Result add(Corporation corporation) {
 		
-if(corporation.getName().isBlank() || corporation.getWebsite().isBlank() || corporation.getWebsite().isBlank() || corporation.getUser().getEmail().isBlank() || corporation.getUser().getPassword().isBlank() || corporation.getUser().getPasswordRepeat().isBlank()) {
-			
-			return new ErrorResult("alanlar boş olamaz");
-		}
+
 
 if(!corporation.getUser().getPassword().equals(corporation.getUser().getPasswordRepeat()) ) {
 	return new ErrorResult("şifreler aynı değil");

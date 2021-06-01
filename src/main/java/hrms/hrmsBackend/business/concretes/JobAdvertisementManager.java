@@ -12,6 +12,7 @@ import hrms.hrmsBackend.core.utilites.results.SuccessDataResult;
 import hrms.hrmsBackend.core.utilites.results.SuccessResult;
 import hrms.hrmsBackend.dataAccess.abstracts.JobAdvertisementDao;
 import hrms.hrmsBackend.entities.concretes.JobAdvertisement;
+import hrms.hrmsBackend.entities.dtos.JobAdvertisementWithActiveDto;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService{
@@ -35,6 +36,12 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 	public DataResult<List<JobAdvertisement>> getAll() {
 		
 		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll(), "ilanlar listelendi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActive() {
+		
+		return new SuccessDataResult<List<JobAdvertisementWithActiveDto>>(this.jobAdvertisementDao.getJobAdvertisementWithActive(),"aktif olanlar getirildi");
 	}
 
 }

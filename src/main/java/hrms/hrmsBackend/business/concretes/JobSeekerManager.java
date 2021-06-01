@@ -40,11 +40,7 @@ public class JobSeekerManager implements JobSeekerService{
 	@Override
 	public Result add(JobSeeker jobSeeker) {
 		
-		if(jobSeeker.getDateOfBirth() == null || jobSeeker.getFirstName().isBlank() || jobSeeker.getLastName().isBlank() || jobSeeker.getNationalityId().isBlank() || jobSeeker.getUser().getEmail().isBlank() || jobSeeker.getUser().getPassword().isBlank() || jobSeeker.getUser().getPasswordRepeat().isBlank()) {
-			
-			return new ErrorResult("alanlar boş olamaz");
-		}
-		
+
 		
 		if(!jobSeeker.getUser().getPassword().equals(jobSeeker.getUser().getPasswordRepeat()) ) {
 			return new ErrorResult("şifreler aynı değil");

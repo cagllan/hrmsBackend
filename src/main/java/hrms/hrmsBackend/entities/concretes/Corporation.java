@@ -38,7 +38,7 @@ public class Corporation{
 	@Column(name="name")
 	@NotBlank
 	@NotNull
-	private String name;
+	private String corporationName;
 	
 	@Column(name="website")
 	@NotBlank

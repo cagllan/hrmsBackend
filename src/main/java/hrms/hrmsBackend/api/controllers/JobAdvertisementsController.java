@@ -14,6 +14,7 @@ import hrms.hrmsBackend.core.utilites.results.DataResult;
 import hrms.hrmsBackend.core.utilites.results.Result;
 import hrms.hrmsBackend.entities.concretes.City;
 import hrms.hrmsBackend.entities.concretes.JobAdvertisement;
+import hrms.hrmsBackend.entities.dtos.JobAdvertisementWithActiveDto;
 
 @RestController
 @RequestMapping("/api/jobadvertisements")
@@ -33,9 +34,16 @@ public class JobAdvertisementsController {
 		return this.jobAdvertisementService.add(jobAdvertisement);
 	}
 	
+	
+	
 	@GetMapping("/getall")
 	public DataResult<List<JobAdvertisement>> getAll() {
 		return this.jobAdvertisementService.getAll();
+	}
+	
+	@GetMapping("/getJobAdvertisementWithActive")
+	public DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActive() {
+		return this.jobAdvertisementService.getJobAdvertisementWithActive();
 	}
 	
 	

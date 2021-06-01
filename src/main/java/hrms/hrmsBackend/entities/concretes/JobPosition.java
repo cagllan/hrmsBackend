@@ -34,7 +34,7 @@ public class JobPosition {
 	@Column(name="name")
 	@NotBlank
 	@NotNull
-	private String name;	
+	private String jobpositionName;	
 	
 	
 	@OneToMany(mappedBy = "jobposition")

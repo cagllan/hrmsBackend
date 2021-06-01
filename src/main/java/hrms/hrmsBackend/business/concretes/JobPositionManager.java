@@ -35,7 +35,7 @@ public class JobPositionManager implements JobPositionService{
 	@Override
 	public Result add(JobPosition jobPosition) {
 		
-		if( isNameExists(jobPosition.getName()) ) {
+		if( isNameExists(jobPosition.getJobpositionName()) ) {
 			return new ErrorResult("Bu isim kayıtlı");
 		}
 		
@@ -46,7 +46,7 @@ public class JobPositionManager implements JobPositionService{
 	}
 	
 	private boolean isNameExists(String name) {
-		if(jobPositionDao.getByName(name).size() > 0) {
+		if(jobPositionDao.getByJobpositionName(name).size() > 0) {
 			return true;
 		}
 		return false;

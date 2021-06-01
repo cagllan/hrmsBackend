@@ -14,4 +14,6 @@ public interface JobAdvertisementService {
 	DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActive();
 	
 	DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActiveAndReleaseDate(LocalDate releaseDate);
+	
+	DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActiveAndCorporationId(int id);
 }

@@ -51,4 +51,10 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		return new SuccessDataResult<List<JobAdvertisementWithActiveDto>>(this.jobAdvertisementDao.getJobAdvertisementWithActiveAndReleaseDate(releaseDate),"tarihli ilanlar getirildi");
 	}
 
+	@Override
+	public DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActiveAndCorporationId(int id) {
+		
+		return new SuccessDataResult<List<JobAdvertisementWithActiveDto>>(this.jobAdvertisementDao.getJobAdvertisementWithActiveAndCorporationId(id),"şirkete ait tüm ilanlar getirildi");
+	}
+
 }

@@ -57,6 +57,13 @@ public class JobAdvertisementsController {
 		
 		return this.jobAdvertisementService.getJobAdvertisementWithActiveAndReleaseDate(localReleaseDate);
 	}
+	
+	
+	@GetMapping("/getJobAdvertisementWithActiveAndCorporationId")
+	public DataResult<List<JobAdvertisementWithActiveDto>> getJobAdvertisementWithActiveAndReleaseDate(@RequestParam("id") int id) {
+		
+		return this.jobAdvertisementService.getJobAdvertisementWithActiveAndCorporationId(id);
+	}
 
 	
 	

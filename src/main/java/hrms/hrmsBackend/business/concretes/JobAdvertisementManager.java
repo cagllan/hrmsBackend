@@ -57,4 +57,18 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		return new SuccessDataResult<List<JobAdvertisementWithActiveDto>>(this.jobAdvertisementDao.getJobAdvertisementWithActiveAndCorporationId(id),"şirkete ait tüm ilanlar getirildi");
 	}
 
+	@Override
+	public Result updateJobAdvertisementDeActive(int id) {
+		
+		JobAdvertisement tempJobAdvert = this.jobAdvertisementDao.getById(id);
+		
+		tempJobAdvert.setActive(false);
+		
+		this.jobAdvertisementDao.save(tempJobAdvert);
+		
+		return new SuccessResult("İş ilanı pasif yapıldı.");
+	}
+
+
+
 }

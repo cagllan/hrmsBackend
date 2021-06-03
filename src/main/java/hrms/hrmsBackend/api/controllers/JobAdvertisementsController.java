@@ -39,6 +39,11 @@ public class JobAdvertisementsController {
 	}
 	
 	
+	@PostMapping("/updateJobAdvertisementDeActive")
+	public Result updateJobAdvertisementDeActive(@RequestParam("id") int id){
+		return this.jobAdvertisementService.updateJobAdvertisementDeActive(id);
+	}
+
 	@GetMapping("/getall")
 	public DataResult<List<JobAdvertisement>> getAll() {
 		return this.jobAdvertisementService.getAll();
@@ -64,6 +69,9 @@ public class JobAdvertisementsController {
 		
 		return this.jobAdvertisementService.getJobAdvertisementWithActiveAndCorporationId(id);
 	}
+	
+	
+	
 
 	
 	

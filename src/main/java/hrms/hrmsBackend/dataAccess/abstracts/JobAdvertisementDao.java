@@ -11,6 +11,8 @@ import hrms.hrmsBackend.entities.dtos.JobAdvertisementWithActiveDto;
 
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement,Integer>{
 	
+	JobAdvertisement getById(int id);
+	
 	@Query("Select new hrms.hrmsBackend.entities.dtos.JobAdvertisementWithActiveDto"
 			+ "(ja.id, c.corporationName, jp.jobpositionName, ja.numberOfOpenPosition, "
 			+ "ja.releaseDate,ja.applicationDeadline, ja.isActive) from Corporation c "
@@ -30,4 +32,6 @@ public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement,Inte
 			+ "ja.releaseDate,ja.applicationDeadline, ja.isActive) from Corporation c "
 			+ "Inner Join c.jobAdvertisements ja Inner Join ja.jobposition jp Where ja.isActive=true And c.corporationId=:id")
 	List<JobAdvertisementWithActiveDto> getJobAdvertisementWithActiveAndCorporationId(int id);
+	
+
 }

@@ -32,6 +32,23 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		this.jobAdvertisementDao.save(jobAdvertisement);
 		return new SuccessResult("ilan olusturuldu");
 	}
+	
+	@Override
+	public Result update(JobAdvertisement jobAdvertisement) {
+		this.jobAdvertisementDao.save(jobAdvertisement);
+		return new SuccessResult("ilan güncellendi");
+	}
+
+	@Override
+	public Result delete(JobAdvertisement jobAdvertisement) {
+		this.jobAdvertisementDao.delete(jobAdvertisement);
+		return new SuccessResult("ilan silindi");
+	}
+
+	@Override
+	public DataResult<JobAdvertisement> getById(int id) {
+		return new SuccessDataResult<JobAdvertisement>(this.jobAdvertisementDao.getById(id), "ilan goruntulendi");
+	}
 
 	@Override
 	public DataResult<List<JobAdvertisement>> getAll() {
@@ -68,6 +85,8 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		
 		return new SuccessResult("İş ilanı pasif yapıldı.");
 	}
+
+
 
 
 

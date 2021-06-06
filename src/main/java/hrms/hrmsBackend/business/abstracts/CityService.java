@@ -8,5 +8,8 @@ import hrms.hrmsBackend.entities.concretes.City;
 
 public interface CityService {
 	Result add(City city);
+	Result update(City city);
+	Result delete(City city);
+	DataResult<City> getById(int id);
 	DataResult<List<City>> getAll();
 }

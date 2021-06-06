@@ -28,11 +28,30 @@ public class CityManager implements CityService{
 		this.cityDao.save(city);
 		return new SuccessResult("şehir eklendi");
 	}
+	
+	@Override
+	public Result update(City city) {
+		this.cityDao.save(city);
+		return new SuccessResult("şehir güncellendi");
+	}
+
+	@Override
+	public Result delete(City city) {
+		this.cityDao.delete(city);
+		return new SuccessResult("şehir silindi");
+	}
+
+	@Override
+	public DataResult<City> getById(int id) {
+		return new SuccessDataResult<City>(this.cityDao.getById(id),"şehir goruntulendi");
+	}
 
 	@Override
 	public DataResult<List<City>> getAll() {
 		return new SuccessDataResult<List<City>>(this.cityDao.findAll(),"şehirler listelendi");
 	}
+
+
 	
 	
 }

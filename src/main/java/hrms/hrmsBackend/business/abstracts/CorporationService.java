@@ -8,5 +8,8 @@ import hrms.hrmsBackend.entities.concretes.Corporation;
 
 public interface CorporationService {
 	Result add(Corporation corporation);
+	Result update(Corporation corporation);
+	Result delete(Corporation corporation);
+	DataResult<Corporation> getById(int id);
 	DataResult<List<Corporation>> getAll();
 }

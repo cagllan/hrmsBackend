@@ -6,5 +6,5 @@ import hrms.hrmsBackend.entities.concretes.Corporation;
 
 
 public interface CorporationDao extends JpaRepository<Corporation,Integer>{
-
+	Corporation getById(int id);
 }

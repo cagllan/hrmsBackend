@@ -26,10 +26,7 @@ public class JobPositionManager implements JobPositionService{
 	}
 
 
-	@Override
-	public DataResult<List<JobPosition>> getAll() {
-		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(),"Kayıtlı işler listelendi");
-	}
+
 
 
 	@Override
@@ -45,11 +42,41 @@ public class JobPositionManager implements JobPositionService{
 		
 	}
 	
+	
+	@Override
+	public Result update(JobPosition jobPosition) {
+		this.jobPositionDao.save(jobPosition);
+		return new SuccessResult("kayıt güncellendi");
+	}
+
+
+	@Override
+	public Result delete(JobPosition jobPosition) {
+		this.jobPositionDao.delete(jobPosition);
+		return new SuccessResult("kayıt silindi");
+	}
+
+
+	@Override
+	public DataResult<JobPosition> getById(int id) {
+		
+		return new SuccessDataResult<JobPosition>(this.jobPositionDao.getById(id),"Kayıt görüntülendi");
+	}
+	
+	
+	@Override
+	public DataResult<List<JobPosition>> getAll() {
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(),"Kayıtlı işler listelendi");
+	}
+	
 	private boolean isNameExists(String name) {
 		if(jobPositionDao.getByJobpositionName(name).size() > 0) {
 			return true;
 		}
 		return false;
 	}
+
+
+
 
 }

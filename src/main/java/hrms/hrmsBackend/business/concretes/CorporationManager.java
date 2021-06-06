@@ -54,6 +54,24 @@ if(!this.sendEmailVerifyService.sendEmail(corporation.getUser().getEmail())) {
 		this.corporationDao.save(corporation);
 		return new SuccessResult("Firma kayıt oldu, dogrulama emaili adresinize gonderildi");
 	}
+	
+	
+	@Override
+	public Result update(Corporation corporation) {
+		this.corporationDao.save(corporation);
+		return new SuccessResult("Firma bilgisi güncellendi");
+	}
+
+	@Override
+	public Result delete(Corporation corporation) {
+		this.corporationDao.delete(corporation);
+		return new SuccessResult("Firma silindi");
+	}
+
+	@Override
+	public DataResult<Corporation> getById(int id) {
+		return new SuccessDataResult<Corporation>(this.corporationDao.getById(id), "Firma goruntulendi");
+	}
 
 	@Override
 	public DataResult<List<Corporation>> getAll() {
@@ -74,5 +92,7 @@ if(!this.sendEmailVerifyService.sendEmail(corporation.getUser().getEmail())) {
 
         return true;
     }
+
+
 
 }

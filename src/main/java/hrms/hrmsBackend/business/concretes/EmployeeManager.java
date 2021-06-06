@@ -38,11 +38,32 @@ public class EmployeeManager implements EmployeeService{
 		this.employeeDao.save(employee);
 		return new SuccessResult("Calisan kayıt oldu");
 	}
+	
+	
+	@Override
+	public Result update(Employee employee) {
+		this.employeeDao.save(employee);
+		return new SuccessResult("Calisan güncellendi");
+	}
+
+	@Override
+	public Result delete(Employee employee) {
+		this.employeeDao.delete(employee);
+		return new SuccessResult("Calisan silindi");
+	}
+
+	@Override
+	public DataResult<Employee> getById(int id) {
+		
+		return new SuccessDataResult<Employee>(this.employeeDao.getById(id),"Calisan goruntulendi");
+	}
 
 	@Override
 	public DataResult<List<Employee>> getAll() {
 		
 		return new SuccessDataResult<List<Employee>>(this.employeeDao.findAll(),"Calisanlar goruntulendi");
 	}
+
+
 
 }

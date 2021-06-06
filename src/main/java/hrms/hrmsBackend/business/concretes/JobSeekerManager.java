@@ -69,6 +69,25 @@ public class JobSeekerManager implements JobSeekerService{
 		 return new SuccessResult("is arayan kayıt oldu. dogrulama emaili adresinize gonderildi" );
 		 
 	}
+	
+	
+	
+	@Override
+	public Result update(JobSeeker jobSeeker) {
+		 this.jobSeekerDao.save(jobSeeker);		 
+		 return new SuccessResult("kullanıcı güncellendi" );
+	}
+
+	@Override
+	public Result delete(JobSeeker jobSeeker) {
+		this.jobSeekerDao.delete(jobSeeker);		 
+		 return new SuccessResult("kullanıcı silindi" );
+	}
+
+	@Override
+	public DataResult<JobSeeker> getById(int id) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getById(id), "Kullanıcı görüntülendi");
+	}
 
 
 
@@ -85,6 +104,8 @@ public class JobSeekerManager implements JobSeekerService{
   		}
   		return false; 
   	}
+
+
   	
   
 

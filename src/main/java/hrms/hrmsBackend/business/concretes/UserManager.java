@@ -37,10 +37,29 @@
   }
   
   
+	@Override
+	public Result update(User user) {
+		
+		this.userDao.save(user);
+		  return new SuccessResult("Kullanıcı güncellendi");
+	}
+
+	@Override
+	public Result delete(User user) {
+		this.userDao.delete(user);
+		return new SuccessResult("Kullanıcı silindi");
+	}
+
+	@Override
+	public DataResult<User> getById(int id) {
+		 return new SuccessDataResult<User>(this.userDao.getById(id),"kullanıcı goruntulendi");
+	}
+  
+  
   @Override 
   public DataResult<List<User>> getAll() {
   
-  return new SuccessDataResult<List<User>>(this.userDao.findAll());
+  return new SuccessDataResult<List<User>>(this.userDao.findAll(),"Kullanıcılar listelendi");
   }
   
   	public boolean isEmailExist(String email) {
@@ -49,6 +68,8 @@
   		}
   		return false; 
   	}
+
+
   
   }
  

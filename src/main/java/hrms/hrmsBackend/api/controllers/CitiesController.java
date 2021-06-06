@@ -44,6 +44,7 @@ public class CitiesController {
 		return ResponseEntity.ok(this.cityService.add(city));
 	}
 	
+	
 	@GetMapping("/getall")
 	public DataResult<List<City>> getAll() {
 		return this.cityService.getAll();

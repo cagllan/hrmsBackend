@@ -70,7 +70,7 @@ if(!this.sendEmailVerifyService.sendEmail(corporation.getUser().getEmail())) {
 
 	@Override
 	public DataResult<Corporation> getById(int id) {
-		return new SuccessDataResult<Corporation>(this.corporationDao.getById(id), "Firma goruntulendi");
+		return new SuccessDataResult<Corporation>(this.corporationDao.getByCorporationId(id), "Firma goruntulendi");
 	}
 
 	@Override

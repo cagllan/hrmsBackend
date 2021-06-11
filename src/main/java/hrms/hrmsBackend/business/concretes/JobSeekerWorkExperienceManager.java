@@ -3,6 +3,7 @@ package hrms.hrmsBackend.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import hrms.hrmsBackend.business.abstracts.JobSeekerWorkExperienceService;
@@ -49,7 +50,7 @@ public class JobSeekerWorkExperienceManager implements JobSeekerWorkExperienceSe
 
 	@Override
 	public DataResult<List<JobSeekerWorkExperience>> getAll() {
-		return new SuccessDataResult<List<JobSeekerWorkExperience>>(this.jobSeekerWorkExperienceDao.findAll(),"getirildi");
+		return new SuccessDataResult<List<JobSeekerWorkExperience>>(this.jobSeekerWorkExperienceDao.findAll(Sort.by("companyDepartureDate").descending()),"getirildi");
 	}
 
 }

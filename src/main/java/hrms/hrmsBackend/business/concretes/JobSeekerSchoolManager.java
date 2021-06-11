@@ -3,6 +3,7 @@ package hrms.hrmsBackend.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import hrms.hrmsBackend.business.abstracts.JobSeekerSchoolService;
@@ -49,7 +50,7 @@ public class JobSeekerSchoolManager implements JobSeekerSchoolService{
 
 	@Override
 	public DataResult<List<JobSeekerSchool>> getAll() {
-		return new SuccessDataResult<List<JobSeekerSchool>>(this.jobSeekerSchoolDao.findAll(),"getirildi");
+		return new SuccessDataResult<List<JobSeekerSchool>>(this.jobSeekerSchoolDao.findAll(Sort.by("schoolFinishDate").descending()),"getirildi");
 	}
 
 }

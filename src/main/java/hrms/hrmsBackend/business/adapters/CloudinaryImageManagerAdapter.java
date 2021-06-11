@@ -19,7 +19,11 @@ public class CloudinaryImageManagerAdapter implements CloudinaryImageService{
 	
 	private Cloudinary cloudinary;
 	
-	
+	/*
+	 * Business.constans içindeki CloudinaryApiKey_sample.java  dosyasının ismini
+	 * CloudinaryApiKey.java olarak degistirin ve cloud_name,api_key,api_secret 
+	 * değerlerini yazın.
+	 */
 	public CloudinaryImageManagerAdapter() {
 		
 		this.cloudinary = new Cloudinary(ObjectUtils.asMap(

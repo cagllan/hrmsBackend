@@ -26,5 +26,5 @@ public class JobSeekerPhoto {
 	private int jobSeekerId;
 	
 	@Column(name="image_path")
-	private int imagePath;
+	private String imagePath;
 }

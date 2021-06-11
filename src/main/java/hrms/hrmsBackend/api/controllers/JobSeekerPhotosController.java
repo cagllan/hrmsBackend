@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import hrms.hrmsBackend.business.abstracts.JobSeekerPhotoService;
 import hrms.hrmsBackend.core.utilites.results.DataResult;
@@ -39,9 +41,14 @@ public class JobSeekerPhotosController {
 	}
 	
 	
+//	@PostMapping("/add")
+//	public ResponseEntity<?> add(@Valid @RequestBody JobSeekerPhoto jobSeekerPhoto) {
+//		return ResponseEntity.ok(this.jobSeekerPhotoService.add(jobSeekerPhoto));
+//	}
+//	
 	@PostMapping("/add")
-	public ResponseEntity<?> add(@Valid @RequestBody JobSeekerPhoto jobSeekerPhoto) {
-		return ResponseEntity.ok(this.jobSeekerPhotoService.add(jobSeekerPhoto));
+	public ResponseEntity<?> add(@RequestParam(value = "jobSeekerId") int jobSeekerId,  @RequestParam(value = "image") MultipartFile image) {
+		return ResponseEntity.ok(this.jobSeekerPhotoService.add(jobSeekerId, image));
 	}
 
 	@GetMapping("/getall")

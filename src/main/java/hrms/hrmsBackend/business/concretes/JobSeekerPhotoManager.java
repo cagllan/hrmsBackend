@@ -1,11 +1,14 @@
 package hrms.hrmsBackend.business.concretes;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import hrms.hrmsBackend.business.abstracts.JobSeekerPhotoService;
+import hrms.hrmsBackend.business.adapters.CloudinaryImageService;
 import hrms.hrmsBackend.core.utilites.results.DataResult;
 import hrms.hrmsBackend.core.utilites.results.Result;
 import hrms.hrmsBackend.core.utilites.results.SuccessDataResult;
@@ -17,15 +20,24 @@ import hrms.hrmsBackend.entities.concretes.JobSeekerPhoto;
 public class JobSeekerPhotoManager implements JobSeekerPhotoService{
 	
 	private JobSeekerPhotoDao jobSeekerPhotoDao;
+	private CloudinaryImageService cloudinaryImageService;
 	
 	@Autowired
-	public JobSeekerPhotoManager(JobSeekerPhotoDao jobSeekerPhotoDao) {
+	public JobSeekerPhotoManager(JobSeekerPhotoDao jobSeekerPhotoDao, CloudinaryImageService cloudinaryImageService) {
 		super();
 		this.jobSeekerPhotoDao = jobSeekerPhotoDao;
+		this.cloudinaryImageService = cloudinaryImageService;
 	}
 
 	@Override
-	public Result add(JobSeekerPhoto jobSeekerPhoto) {
+	public Result add(int jobSeekerId, MultipartFile image) {
+		
+		Map<String,String> uploadImage = this.cloudinaryImageService.uploadImage(image).getData();
+		
+		JobSeekerPhoto jobSeekerPhoto = new JobSeekerPhoto();
+		jobSeekerPhoto.setJobSeekerId(jobSeekerId);;
+		jobSeekerPhoto.setImagePath(uploadImage.get("url"));
+		
 		this.jobSeekerPhotoDao.save(jobSeekerPhoto);
 		return new SuccessResult("kaydedildi");
 	}

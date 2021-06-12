@@ -27,4 +27,5 @@ public class JobSeekerPhoto {
 	
 	@Column(name="image_path")
 	private String imagePath;
+
 }

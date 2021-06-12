@@ -35,7 +35,8 @@ public class JobSeekerPhotoManager implements JobSeekerPhotoService{
 		Map<String,String> uploadImage = this.cloudinaryImageService.uploadImage(image).getData();
 		
 		JobSeekerPhoto jobSeekerPhoto = new JobSeekerPhoto();
-		jobSeekerPhoto.setJobSeekerId(jobSeekerId);;
+		
+		jobSeekerPhoto.setJobSeekerId(jobSeekerId);
 		jobSeekerPhoto.setImagePath(uploadImage.get("url"));
 		
 		this.jobSeekerPhotoDao.save(jobSeekerPhoto);

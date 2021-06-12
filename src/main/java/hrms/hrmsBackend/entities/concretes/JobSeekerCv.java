@@ -2,6 +2,7 @@ package hrms.hrmsBackend.entities.concretes;
 
 import java.util.List;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +42,22 @@ public class JobSeekerCv {
 	
 	@Column(name="linkedin")
 	private String linkedin;
+	
+	
+	@OneToMany(mappedBy = "jobSeekerCv")
+	private List<JobSeekerLanguage> jobSeekerLanguages;
+	
+	
+	@OneToMany(mappedBy = "jobSeekerCv")
+	private List<JobSeekerSchool> jobSeekerSchool;
+	
+	
+	@OneToMany(mappedBy = "jobSeekerCv")
+	private List<JobSeekerSoftwareExperience> jobSeekerSoftwareExperience;
+	
+	
+	@OneToMany(mappedBy = "jobSeekerCv")
+	private List<JobSeekerWorkExperience> jobSeekerWorkExperience;
 	
 
 }

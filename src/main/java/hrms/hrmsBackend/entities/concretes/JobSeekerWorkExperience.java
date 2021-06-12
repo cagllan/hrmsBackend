@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,8 +28,8 @@ public class JobSeekerWorkExperience {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="cv_id")
-	private int cvId;
+//	@Column(name="cv_id")
+//	private int cvId;
 	
 	@Column(name="company_name")
 	private String companyName;
@@ -39,4 +42,10 @@ public class JobSeekerWorkExperience {
 	
 	@Column(name="company_departure_date")
 	private LocalDate companyDepartureDate;
+	
+	@JsonIgnore
+	@ManyToOne()
+	@JoinColumn(name="cv_id")
+	private JobSeekerCv jobSeekerCv;
+
 }
